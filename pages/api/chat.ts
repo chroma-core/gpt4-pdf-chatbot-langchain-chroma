@@ -1,9 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
-import { PineconeStore } from 'langchain/vectorstores/pinecone';
+import { Chroma } from 'langchain/vectorstores/chroma';
 import { makeChain } from '@/utils/makechain';
-import { pinecone } from '@/utils/pinecone-client';
-import { PINECONE_INDEX_NAME, PINECONE_NAME_SPACE } from '@/config/pinecone';
+import { COLLECTION_NAME } from '@/config/chroma';
 
 export default async function handler(
   req: NextApiRequest,
@@ -26,16 +25,13 @@ export default async function handler(
   const sanitizedQuestion = question.trim().replaceAll('\n', ' ');
 
   try {
-    const index = pinecone.Index(PINECONE_INDEX_NAME);
 
     /* create vectorstore*/
-    const vectorStore = await PineconeStore.fromExistingIndex(
+    const vectorStore = await Chroma.fromExistingCollection(
       new OpenAIEmbeddings({}),
       {
-        pineconeIndex: index,
-        textKey: 'text',
-        namespace: PINECONE_NAME_SPACE, //namespace comes from your config folder
-      },
+        collectionName: COLLECTION_NAME,
+       },
     );
 
     //create chain
