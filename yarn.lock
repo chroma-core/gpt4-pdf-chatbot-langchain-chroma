@@ -340,13 +340,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@pinecone-database/pinecone@0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@pinecone-database/pinecone/-/pinecone-0.0.12.tgz#c40c10464c04c9e2f31fe363c1785177fe3f4868"
-  integrity sha512-YI9IQ7/0k6jI+NUyTD+I2BvwUGhOMRgMpx/qx/v5t5Cm31vSdnXEgGfh9jILUpi/+j59vtK+O5rB+pV5v1L15w==
-  dependencies:
-    cross-fetch "^3.1.5"
-
 "@pkgr/utils@^2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-2.3.1.tgz#0a9b06ffddee364d6642b3cd562ca76f55b34a03"
@@ -880,6 +873,13 @@ chokidar@^3.5.3:
     readdirp "~3.6.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+chromadb@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/chromadb/-/chromadb-1.4.1.tgz#a81a826956051617fdd25299fc5d3132bcb9ebd6"
+  integrity sha512-vRcig4CJxJXs++cKMt9tHmk9YjQprxzLK9sVYD6iXfqRJBoXeoFzk/RS95Dz1J6/7aSfBwDsyx3AE2ePP9FnYA==
+  dependencies:
+    axios "^0.26.0"
 
 client-only@0.0.1:
   version "0.0.1"
